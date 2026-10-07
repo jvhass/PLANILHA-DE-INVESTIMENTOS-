@@ -1,1 +1,1603 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="theme-color"
+          content="#050812">
+
+    <meta name="description"
+          content="INVEST+ — Central pessoal de investimentos">
+
+    <title>INVEST+ | Command Center</title>
+
+    <!-- FONTES -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+          rel="stylesheet">
+
+    <!-- ÍCONES -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- GRÁFICOS -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- NOSSO CSS -->
+    <link rel="stylesheet"
+          href="style.css">
+
+</head>
+
+
+<body>
+
+<!-- =========================================================
+     FUNDO / EFEITOS
+========================================================= -->
+
+<div class="background">
+
+    <div class="glow glow-blue"></div>
+
+    <div class="glow glow-purple"></div>
+
+    <div class="glow glow-green"></div>
+
+</div>
+
+
+<!-- =========================================================
+     APP
+========================================================= -->
+
+<div class="app">
+
+
+<!-- =========================================================
+     SIDEBAR
+========================================================= -->
+
+<aside class="sidebar">
+
+    <div class="brand">
+
+        <div class="brand-icon">
+            <i class="fa-solid fa-bolt"></i>
+        </div>
+
+        <div class="brand-name">
+
+            <strong>
+                INVEST<span>+</span>
+            </strong>
+
+            <small>
+                COMMAND CENTER
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <nav class="navigation">
+
+        <button class="nav-item active"
+                data-page="dashboard">
+
+            <i class="fa-solid fa-grid-2"></i>
+
+            <span>
+                Dashboard
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="portfolio">
+
+            <i class="fa-solid fa-wallet"></i>
+
+            <span>
+                Minha carteira
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="advisor">
+
+            <i class="fa-solid fa-brain"></i>
+
+            <span>
+                Minha assessora
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="goals">
+
+            <i class="fa-solid fa-bullseye"></i>
+
+            <span>
+                Metas
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="simulator">
+
+            <i class="fa-solid fa-calculator"></i>
+
+            <span>
+                Simulador
+            </span>
+
+        </button>
+
+
+        <button class="nav-item"
+                data-page="calendar">
+
+            <i class="fa-solid fa-calendar-days"></i>
+
+            <span>
+                Vencimentos
+            </span>
+
+        </button>
+
+    </nav>
+
+
+    <div class="sidebar-bottom">
+
+        <div class="system-status">
+
+            <span class="status-dot"></span>
+
+            <div>
+
+                <strong>
+                    SISTEMA ONLINE
+                </strong>
+
+                <small>
+                    Dados locais
+                </small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+
+
+<!-- =========================================================
+     CONTEÚDO PRINCIPAL
+========================================================= -->
+
+<main class="main">
+
+
+<!-- =========================================================
+     TOPBAR
+========================================================= -->
+
+<header class="topbar">
+
+    <div class="page-title">
+
+        <span class="eyebrow">
+            PERSONAL WEALTH OS
+        </span>
+
+        <h1 id="pageTitle">
+            Dashboard
+        </h1>
+
+    </div>
+
+
+    <div class="top-actions">
+
+        <button class="btn secondary"
+                id="exportData">
+
+            <i class="fa-solid fa-download"></i>
+
+            Exportar
+
+        </button>
+
+
+        <button class="btn primary"
+                id="openInvestmentModal">
+
+            <i class="fa-solid fa-plus"></i>
+
+            Novo investimento
+
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- =========================================================
+     DASHBOARD
+========================================================= -->
+
+<section class="page active"
+         id="dashboard">
+
+
+<!-- HERO -->
+
+<div class="hero glass">
+
+    <div class="hero-content">
+
+        <span class="status-badge">
+
+            <span></span>
+
+            CARTEIRA ATIVA
+
+        </span>
+
+
+        <h2>
+
+            Sua carteira.<br>
+
+            <span>
+                Sua estratégia.
+            </span>
+
+        </h2>
+
+
+        <p>
+
+            Um centro de comando pessoal para acompanhar
+            patrimônio, rendimento, liquidez, concentração
+            e evolução dos seus investimentos.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <button class="btn primary"
+                    onclick="goToPage('portfolio')">
+
+                <i class="fa-solid fa-wallet"></i>
+
+                Ver minha carteira
+
+            </button>
+
+
+            <button class="btn secondary"
+                    onclick="goToPage('advisor')">
+
+                <i class="fa-solid fa-brain"></i>
+
+                Ver análise
+
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="hero-orb">
+
+        <div class="orb-inner">
+
+            <span id="heroRentability">
+                0,00%
+            </span>
+
+            <small>
+                RENTABILIDADE
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- KPIs -->
+
+<div class="kpi-grid">
+
+
+    <div class="kpi glass">
+
+        <div class="kpi-icon cyan">
+            <i class="fa-solid fa-wallet"></i>
+        </div>
+
+        <div>
+
+            <span>
+                Patrimônio
+            </span>
+
+            <strong id="totalPatrimonio">
+                R$ 0,00
+            </strong>
+
+            <small>
+                valor atual
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="kpi glass">
+
+        <div class="kpi-icon blue">
+            <i class="fa-solid fa-coins"></i>
+        </div>
+
+        <div>
+
+            <span>
+                Total aplicado
+            </span>
+
+            <strong id="totalAplicado">
+                R$ 0,00
+            </strong>
+
+            <small>
+                capital investido
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="kpi glass">
+
+        <div class="kpi-icon green">
+            <i class="fa-solid fa-arrow-trend-up"></i>
+        </div>
+
+        <div>
+
+            <span>
+                Resultado
+            </span>
+
+            <strong id="totalResultado">
+                R$ 0,00
+            </strong>
+
+            <small>
+                ganho / perda
+            </small>
+
+        </div>
+
+    </div>
+
+
+
+    <div class="kpi glass">
+
+        <div class="kpi-icon purple">
+            <i class="fa-solid fa-chart-pie"></i>
+        </div>
+
+        <div>
+
+            <span>
+                Rentabilidade
+            </span>
+
+            <strong id="totalRentabilidade">
+                0,00%
+            </strong>
+
+            <small>
+                sobre o capital
+            </small>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- GRÁFICOS -->
+
+<div class="dashboard-grid">
+
+
+    <!-- DISTRIBUIÇÃO -->
+
+    <div class="panel glass">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    DISTRIBUIÇÃO
+                </span>
+
+                <h3>
+                    Onde está meu dinheiro?
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div class="chart-container">
+
+            <canvas id="portfolioChart"></canvas>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- ASSESSORIA -->
+
+    <div class="panel glass">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    INTELLIGENCE
+                </span>
+
+                <h3>
+                    Leitura da carteira
+                </h3>
+
+            </div>
+
+
+            <span class="health-badge"
+                  id="healthBadge">
+
+                ANALISANDO
+
+            </span>
+
+        </div>
+
+
+        <div id="dashboardInsights"
+             class="insights">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- RESUMO -->
+
+<div class="panel glass summary-panel">
+
+    <div class="panel-header">
+
+        <div>
+
+            <span class="eyebrow">
+                RESUMO
+            </span>
+
+            <h3>
+                Minha carteira agora
+            </h3>
+
+        </div>
+
+        <button class="text-button"
+                onclick="goToPage('portfolio')">
+
+            Ver tudo
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
+    </div>
+
+
+    <div id="dashboardInvestments"
+         class="investment-preview">
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CARTEIRA
+========================================================= -->
+
+<section class="page"
+         id="portfolio">
+
+
+<div class="section-header">
+
+    <div>
+
+        <span class="eyebrow">
+            DATABASE
+        </span>
+
+        <h2>
+            Minha carteira
+        </h2>
+
+        <p>
+            Todos os seus investimentos em um único lugar.
+        </p>
+
+    </div>
+
+
+    <button class="btn primary"
+            id="openInvestmentModal2">
+
+        <i class="fa-solid fa-plus"></i>
+
+        Adicionar investimento
+
+    </button>
+
+</div>
+
+
+
+<!-- FILTROS -->
+
+<div class="filters glass">
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            id="searchInvestment"
+            placeholder="Buscar investimento ou instituição..."
+        >
+
+    </div>
+
+
+    <select id="filterType">
+
+        <option value="">
+            Todos os tipos
+        </option>
+
+        <option value="Renda Fixa">
+            Renda Fixa
+        </option>
+
+        <option value="Renda Variável">
+            Renda Variável
+        </option>
+
+        <option value="Fundo">
+            Fundos
+        </option>
+
+        <option value="Cripto">
+            Cripto
+        </option>
+
+        <option value="Reserva">
+            Reserva
+        </option>
+
+    </select>
+
+
+    <select id="filterLiquidity">
+
+        <option value="">
+            Todas as liquidez
+        </option>
+
+        <option value="Diária">
+            Liquidez diária
+        </option>
+
+        <option value="Fixa">
+            Fixa
+        </option>
+
+        <option value="6 meses">
+            6 meses
+        </option>
+
+        <option value="12 meses">
+            12 meses
+        </option>
+
+    </select>
+
+</div>
+
+
+
+<!-- TABELA -->
+
+<div class="table-container glass">
+
+    <div class="table-scroll">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        INVESTIMENTO
+                    </th>
+
+                    <th>
+                        INSTITUIÇÃO
+                    </th>
+
+                    <th>
+                        INDEXADOR
+                    </th>
+
+                    <th>
+                        TAXA
+                    </th>
+
+                    <th>
+                        LIQUIDEZ
+                    </th>
+
+                    <th>
+                        APLICADO
+                    </th>
+
+                    <th>
+                        ATUAL
+                    </th>
+
+                    <th>
+                        RESULTADO
+                    </th>
+
+                    <th>
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody id="portfolioTable">
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     ASSESSORA
+========================================================= -->
+
+<section class="page"
+         id="advisor">
+
+
+<div class="section-header">
+
+    <div>
+
+        <span class="eyebrow">
+            INVESTMENT INTELLIGENCE
+        </span>
+
+        <h2>
+            Minha assessora
+        </h2>
+
+        <p>
+            Diagnóstico automático da sua carteira.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="advisor-grid">
+
+
+    <!-- SCORE -->
+
+    <div class="score-card glass">
+
+        <span class="eyebrow">
+            HEALTH SCORE
+        </span>
+
+
+        <div class="big-score"
+             id="healthScore">
+
+            0
+
+        </div>
+
+
+        <div class="score-label">
+            saúde da carteira
+        </div>
+
+
+        <p id="healthDescription">
+
+            Analisando seus investimentos...
+
+        </p>
+
+    </div>
+
+
+
+    <!-- RADAR -->
+
+    <div class="panel glass">
+
+        <div class="panel-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    RADAR
+                </span>
+
+                <h3>
+                    O que merece atenção
+                </h3>
+
+            </div>
+
+        </div>
+
+
+        <div id="advisorRadar"
+             class="radar">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- RECOMENDAÇÃO -->
+
+<div class="advisor-message glass">
+
+    <div class="advisor-avatar">
+
+        <i class="fa-solid fa-brain"></i>
+
+    </div>
+
+
+    <div>
+
+        <span class="eyebrow">
+            PRÓXIMO MOVIMENTO
+        </span>
+
+        <h3 id="advisorRecommendation">
+
+            Analisando...
+
+        </h3>
+
+        <p id="advisorRecommendationText">
+
+            Aguarde enquanto a carteira é analisada.
+
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<!-- MÉTRICAS -->
+
+<div class="metrics-grid">
+
+
+    <div class="metric-card glass">
+
+        <span>
+            Concentração máxima
+        </span>
+
+        <strong id="concentrationMetric">
+            0%
+        </strong>
+
+    </div>
+
+
+    <div class="metric-card glass">
+
+        <span>
+            Liquidez diária
+        </span>
+
+        <strong id="liquidityMetric">
+            0%
+        </strong>
+
+    </div>
+
+
+    <div class="metric-card glass">
+
+        <span>
+            Renda fixa
+        </span>
+
+        <strong id="fixedIncomeMetric">
+            0%
+        </strong>
+
+    </div>
+
+
+    <div class="metric-card glass">
+
+        <span>
+            Investimentos
+        </span>
+
+        <strong id="positionsMetric">
+            0
+        </strong>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     METAS
+========================================================= -->
+
+<section class="page"
+         id="goals">
+
+
+<div class="section-header">
+
+    <div>
+
+        <span class="eyebrow">
+            PLANEJAMENTO
+        </span>
+
+        <h2>
+            Metas de patrimônio
+        </h2>
+
+        <p>
+            Transforme seus objetivos em números.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="goal-grid">
+
+
+    <div class="panel glass">
+
+        <span class="eyebrow">
+            DEFINIR META
+        </span>
+
+        <h3>
+            Quanto você quer alcançar?
+        </h3>
+
+
+        <label>
+            Meta de patrimônio
+        </label>
+
+        <div class="input-money">
+
+            <span>
+                R$
+            </span>
+
+            <input
+                type="number"
+                id="goalInput"
+                value="10000"
+                step="100"
+            >
+
+        </div>
+
+
+        <label>
+            Nome da meta
+        </label>
+
+        <input
+            type="text"
+            id="goalName"
+            placeholder="Ex.: Primeiro R$ 10 mil"
+        >
+
+
+        <button
+            class="btn primary full"
+            id="saveGoal">
+
+            <i class="fa-solid fa-floppy-disk"></i>
+
+            Salvar meta
+
+        </button>
+
+    </div>
+
+
+
+    <div class="goal-progress glass">
+
+        <span class="eyebrow">
+            PROGRESSO
+        </span>
+
+
+        <div class="goal-numbers">
+
+            <strong id="goalCurrent">
+                R$ 0
+            </strong>
+
+            <span>
+                de
+            </span>
+
+            <b id="goalTarget">
+                R$ 10.000
+            </b>
+
+        </div>
+
+
+        <div class="progress-bar">
+
+            <div id="goalProgress">
+            </div>
+
+        </div>
+
+
+        <div class="progress-info">
+
+            <span id="goalPercent">
+                0%
+            </span>
+
+            <span id="goalRemaining">
+                Faltam R$ 10.000
+            </span>
+
+        </div>
+
+
+        <div class="goal-message">
+
+            <i class="fa-solid fa-bullseye"></i>
+
+            <span id="goalMessage">
+
+                Sua jornada começa agora.
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     SIMULADOR
+========================================================= -->
+
+<section class="page"
+         id="simulator">
+
+
+<div class="section-header">
+
+    <div>
+
+        <span class="eyebrow">
+            SIMULADOR
+        </span>
+
+        <h2>
+            Simulador de aportes
+        </h2>
+
+        <p>
+            Veja o potencial de um novo aporte.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="simulator-grid">
+
+
+    <div class="panel glass simulator-form">
+
+        <label>
+            Patrimônio inicial
+        </label>
+
+        <input
+            type="number"
+            id="simInitial"
+            value="8335.13"
+            step="100"
+        >
+
+
+        <label>
+            Aporte mensal
+        </label>
+
+        <input
+            type="number"
+            id="simMonthly"
+            value="500"
+            step="50"
+        >
+
+
+        <label>
+            Rentabilidade mensal (%)
+        </label>
+
+        <input
+            type="number"
+            id="simRate"
+            value="1"
+            step="0.1"
+        >
+
+
+        <label>
+            Período (meses)
+        </label>
+
+        <input
+            type="number"
+            id="simMonths"
+            value="24"
+            step="1"
+        >
+
+
+        <button
+            class="btn primary full"
+            id="runSimulation">
+
+            <i class="fa-solid fa-play"></i>
+
+            Simular
+
+        </button>
+
+    </div>
+
+
+
+    <div class="panel glass simulator-result">
+
+        <span class="eyebrow">
+            PROJEÇÃO
+        </span>
+
+
+        <div class="simulation-big">
+
+            <strong id="simulationResult">
+                R$ 0,00
+            </strong>
+
+            <span>
+                patrimônio projetado
+            </span>
+
+        </div>
+
+
+        <div class="simulation-stats">
+
+            <div>
+
+                <span>
+                    Total aportado
+                </span>
+
+                <strong id="simulationInvested">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    Juros
+                </span>
+
+                <strong id="simulationInterest">
+                    R$ 0,00
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CALENDÁRIO
+========================================================= -->
+
+<section class="page"
+         id="calendar">
+
+
+<div class="section-header">
+
+    <div>
+
+        <span class="eyebrow">
+            TIMELINE
+        </span>
+
+        <h2>
+            Vencimentos
+        </h2>
+
+        <p>
+            Nunca perca de vista uma data importante.
+        </p>
+
+    </div>
+
+</div>
+
+
+
+<div class="calendar-list"
+     id="maturityList">
+
+</div>
+
+</section>
+
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    INVEST+
+
+    <span>
+        •
+    </span>
+
+    PERSONAL WEALTH COMMAND CENTER
+
+    <span>
+        •
+    </span>
+
+    SEUS DADOS, SUA ESTRATÉGIA.
+
+</footer>
+
+
+</main>
+
+</div>
+
+
+
+<!-- =========================================================
+     MODAL NOVO INVESTIMENTO
+========================================================= -->
+
+<div class="modal"
+     id="investmentModal">
+
+    <div class="modal-box glass">
+
+        <button
+            class="modal-close"
+            id="closeInvestmentModal">
+
+            ×
+
+        </button>
+
+
+        <span class="eyebrow">
+            NOVA POSIÇÃO
+        </span>
+
+        <h2>
+            Adicionar investimento
+        </h2>
+
+
+        <form
+            id="investmentForm"
+            class="form-grid">
+
+
+            <div class="form-field">
+
+                <label>
+                    Instituição
+                </label>
+
+                <input
+                    name="institution"
+                    placeholder="Ex.: Banco Inter"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Nome do investimento
+                </label>
+
+                <input
+                    name="name"
+                    placeholder="Ex.: LCI 92% CDI"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Tipo
+                </label>
+
+                <select name="type">
+
+                    <option>
+                        Renda Fixa
+                    </option>
+
+                    <option>
+                        Renda Variável
+                    </option>
+
+                    <option>
+                        Fundo
+                    </option>
+
+                    <option>
+                        Cripto
+                    </option>
+
+                    <option>
+                        Reserva
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Indexador
+                </label>
+
+                <select name="indexer">
+
+                    <option>
+                        CDI
+                    </option>
+
+                    <option>
+                        Prefixado
+                    </option>
+
+                    <option>
+                        IPCA+
+                    </option>
+
+                    <option>
+                        Selic
+                    </option>
+
+                    <option>
+                        Outro
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Taxa (%)
+                </label>
+
+                <input
+                    name="rate"
+                    type="number"
+                    step="0.01"
+                    placeholder="Ex.: 115"
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Liquidez
+                </label>
+
+                <select name="liquidity">
+
+                    <option>
+                        Diária
+                    </option>
+
+                    <option>
+                        Fixa
+                    </option>
+
+                    <option>
+                        6 meses
+                    </option>
+
+                    <option>
+                        12 meses
+                    </option>
+
+                    <option>
+                        No vencimento
+                    </option>
+
+                </select>
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Valor aplicado
+                </label>
+
+                <input
+                    name="invested"
+                    type="number"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Valor atual
+                </label>
+
+                <input
+                    name="current"
+                    type="number"
+                    step="0.01"
+                    required
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Data de vencimento
+                </label>
+
+                <input
+                    name="maturity"
+                    type="date"
+                >
+
+            </div>
+
+
+
+            <div class="form-field">
+
+                <label>
+                    Observação
+                </label>
+
+                <input
+                    name="note"
+                    placeholder="Ex.: valor fixado"
+                >
+
+            </div>
+
+
+
+            <div class="form-actions">
+
+                <button
+                    type="button"
+                    class="btn secondary"
+                    id="cancelInvestment">
+
+                    Cancelar
+
+                </button>
+
+
+                <button
+                    type="submit"
+                    class="btn primary">
+
+                    <i class="fa-solid fa-plus"></i>
+
+                    Adicionar
+
+                </button>
+
+            </div>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
